@@ -12,7 +12,7 @@ buildscript {
         compile.exclude module: "spring-boot-starter-tomcat"
     }
 }
-apply plugin: 'scala'
+apply plugin: 'java'
 apply plugin: 'spring-boot'
 
 jar {

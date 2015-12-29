@@ -1,6 +1,6 @@
 package com.heyferh.homepage.controller
 
-import java.time.{Instant, LocalDateTime}
+import java.time._
 
 import akka.actor.ActorRef
 import com.heyferh.homepage.model.{Message, UserStatistics}
@@ -40,7 +40,12 @@ class RootController {
   @RequestMapping(value = Array("heyferh/storeStats"), method = Array(RequestMethod.POST))
   def saveStatistics(@RequestParam(value = "actions[]", required = false) actions: Array[String],
                      @RequestParam(value = "startTimeStamp") startTimeStamp: Long) = {
-    saverActor ! UserStatistics(actions, LocalDateTime.from(Instant.ofEpochSecond(startTimeStamp)), LocalDateTime.now())
+    saverActor ! UserStatistics
+    (
+      actions,
+      LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeStamp), ZoneId.of("Europe/Moscow")),
+      LocalDateTime.now(ZoneId.of("Europe/Moscow"))
+      )
   }
 
   @ResponseBody

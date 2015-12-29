@@ -6,7 +6,7 @@ import java.time.LocalDateTime
  * Created by ferh on 19/12/15.
  */
 case class UserStatistics(
-                           actions: Array[String] = Array("Zero clicks"),
+                           actions: Array[String],
                            startDate: LocalDateTime,
                            endDate: LocalDateTime
                            )

@@ -40,8 +40,7 @@ class RootController {
   @RequestMapping(value = Array("heyferh/storeStats"), method = Array(RequestMethod.POST))
   def saveStatistics(@RequestParam(value = "actions[]", required = false) actions: Array[String],
                      @RequestParam(value = "startTimeStamp") startTimeStamp: Long) = {
-    saverActor ! UserStatistics
-    (
+    saverActor ! UserStatistics(
       actions,
       LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeStamp), ZoneId.of("Europe/Moscow")),
       LocalDateTime.now(ZoneId.of("Europe/Moscow"))

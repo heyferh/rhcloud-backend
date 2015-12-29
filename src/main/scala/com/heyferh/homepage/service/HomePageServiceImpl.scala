@@ -5,6 +5,8 @@ import com.heyferh.homepage.repository.{MessagesRepository, UserStatisticsReposi
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
+import scala.collection.JavaConversions._
+
 /**
  * Created by feku on 12/24/2015.
  */
@@ -16,7 +18,11 @@ class HomePageServiceImpl extends HomePageService {
   @Autowired
   val messagesRepository: MessagesRepository = null
 
-  def saveUserStatistics(stats: UserStatistics) = userStatisticsRepository save stats
+  override def saveUserStatistics(stats: UserStatistics) = userStatisticsRepository save stats
 
   override def saveSentMessage(message: Message) = messagesRepository save message
+
+  override def allUserStats() = userStatisticsRepository findAll
+
+  override def allMessages() = messagesRepository findAll
 }

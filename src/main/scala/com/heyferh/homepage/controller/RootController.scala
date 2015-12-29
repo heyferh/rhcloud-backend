@@ -4,6 +4,7 @@ import java.time._
 
 import akka.actor.ActorRef
 import com.heyferh.homepage.model.{Message, UserStatistics}
+import com.heyferh.homepage.service.HomePageService
 import de.raysha.lib.telegram.bot.api.BotAPI
 import org.springframework.beans.factory.annotation.{Autowired, Value}
 import org.springframework.stereotype.Controller
@@ -44,7 +45,7 @@ class RootController {
       actions,
       LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeStamp), ZoneId.of("Europe/Moscow")),
       LocalDateTime.now(ZoneId.of("Europe/Moscow"))
-      )
+    )
   }
 
   @ResponseBody

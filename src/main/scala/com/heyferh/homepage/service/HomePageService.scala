@@ -10,4 +10,8 @@ trait HomePageService {
   def saveUserStatistics(stats: UserStatistics)
 
   def saveSentMessage(message: Message)
+
+  def allUserStats(): Seq[UserStatistics]
+
+  def allMessages(): Seq[Message]
 }

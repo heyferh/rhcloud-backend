@@ -12,11 +12,11 @@ buildscript {
         compile.exclude module: "spring-boot-starter-tomcat"
     }
 }
-apply plugin: 'java'
+apply plugin: 'scala'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'demo'
+    baseName = 'diy'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8

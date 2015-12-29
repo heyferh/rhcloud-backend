@@ -13,9 +13,9 @@ buildscript {
   }
 }
 
-apply plugin: 'java'
-apply plugin: 'scala'
 apply plugin: 'spring-boot'
+apply plugin: 'scala'
+apply plugin: 'java'
 
 jar {
   baseName = 'diy'
@@ -30,12 +30,13 @@ repositories {
 
 
 dependencies {
+  compile("com.typesafe.akka:akka-actor_2.11:2.4.1")
   compile("de.raysha.lib.telegram:bot-api:1.0.1")
   compile("org.scala-lang:scala-library:2.11.1")
-  compile("com.typesafe.akka:akka-actor_2.11:2.4.1")
 
 
   compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+  compile("org.springframework.boot:spring-boot-starter-actuator")
   compile("org.springframework.boot:spring-boot-starter-undertow")
   compile("org.springframework.boot:spring-boot-starter-web")
 }

@@ -9,7 +9,7 @@ case class Message(
                     senderName: String,
                     senderEmail: String,
                     text: String,
-                    date: LocalDateTime = LocalDateTime now
+                    date: LocalDateTime
                     )
   extends Serializable {
   override def toString =

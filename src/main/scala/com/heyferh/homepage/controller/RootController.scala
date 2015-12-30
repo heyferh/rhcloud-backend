@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation._
  */
 @Controller
 @RequestMapping(Array("/"))
-class RootController @Autowired()(notificationService: NotificationService , homePageService: HomePageService ) {
+class RootController @Autowired()(notificationService: NotificationService, homePageService: HomePageService) {
 
   @CrossOrigin(origins = Array("http://heyferh.com"))
   @ResponseBody
@@ -21,7 +21,7 @@ class RootController @Autowired()(notificationService: NotificationService , hom
   def sendMessage(@RequestParam(value = "messageText", required = false) text: String,
                   @RequestParam(value = "name", required = false) name: String,
                   @RequestParam(value = "email", required = false) email: String) = {
-    notificationService sendMessage Message(name, email, text)
+    notificationService sendMessage Message(name, email, text, LocalDateTime now)
     "success"
   }
 

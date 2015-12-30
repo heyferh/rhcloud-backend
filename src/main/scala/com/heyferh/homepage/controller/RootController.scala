@@ -21,7 +21,7 @@ class RootController @Autowired()(notificationService: NotificationService, home
   def sendMessage(@RequestParam(value = "messageText", required = false) text: String,
                   @RequestParam(value = "name", required = false) name: String,
                   @RequestParam(value = "email", required = false) email: String) = {
-    notificationService sendMessage Message(name, email, text, LocalDateTime now)
+    notificationService sendMessage Message(name, email, text)
     "success"
   }
 

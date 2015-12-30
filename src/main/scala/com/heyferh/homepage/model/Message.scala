@@ -9,13 +9,12 @@ case class Message(
                     senderName: String,
                     senderEmail: String,
                     text: String,
-                    date: LocalDateTime
+                    date: LocalDateTime = LocalDateTime now
                     )
   extends Serializable {
   override def toString =
     "Message from heyferh.com:\n" +
       "Name: " + senderName + "\n" +
       "Email: " + senderEmail + "\n" +
-      "Message: " + text + "\n" +
-      "Date: " + date
+      "Message: " + text
 }

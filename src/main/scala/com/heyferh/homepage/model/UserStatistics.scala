@@ -10,4 +10,9 @@ case class UserStatistics(
                            startDate: LocalDateTime,
                            endDate: LocalDateTime
                            )
-  extends java.io.Serializable
+  extends java.io.Serializable {
+  override def toString =
+    "Start time: " + startDate + "\n" +
+      "End time: " + endDate + "\n" +
+      "Actions: " + actions
+}

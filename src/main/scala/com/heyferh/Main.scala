@@ -2,7 +2,7 @@ package com.heyferh
 
 import akka.actor.{ActorSystem, Props}
 import com.heyferh.homepage.actors.Saver
-import com.heyferh.homepage.service.HomePageService
+import com.heyferh.homepage.repository.{MessagesRepository, UserStatisticsRepository}
 import de.raysha.lib.telegram.bot.api.TelegramBot
 import org.springframework.beans.factory.annotation.{Autowired, Value}
 import org.springframework.context.annotation.{Bean, Configuration, DependsOn}
@@ -20,14 +20,17 @@ class Main {
   private val notificationToken: String = null
 
   @Autowired
-  private val homePageService: HomePageService = null
+  private val messageRepository: MessagesRepository = null
+
+  @Autowired
+  private val userStatisticsRepository: UserStatisticsRepository = null
 
   @Bean(name = Array("actorSystem"))
   def actorSystem() = ActorSystem("myApp")
 
   @Bean
   @DependsOn(Array("actorSystem"))
-  def saverActor() = actorSystem actorOf Props(new Saver(homePageService))
+  def saverActor() = actorSystem actorOf Props(new Saver(messageRepository, userStatisticsRepository))
 
   @Bean
   def solyankaBot() = new TelegramBot(solyankaToken)

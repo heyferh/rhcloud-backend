@@ -42,8 +42,8 @@ class RootController {
                      @RequestParam(value = "startTimeStamp") startTimeStamp: Long) = {
     saverActor ! UserStatistics(
       actions,
-      LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeStamp), ZoneId.of("Europe/Moscow")),
-      LocalDateTime.now(ZoneId.of("Europe/Moscow"))
+      LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeStamp), ZoneId.systemDefault()),
+      LocalDateTime now
     )
   }
 

@@ -10,16 +10,10 @@ import org.springframework.stereotype.Service
  * Created by feku on 12/30/2015.
  */
 @Service
-class NotificationServiceImpl extends NotificationService {
-
-  @Autowired
-  private val saverActor: ActorRef = null
+class NotificationServiceImpl @Autowired()(saverActor: ActorRef, notificationBot: BotAPI) extends NotificationService {
 
   @Value("${myTelegramID}")
   private val myTelegramID: Integer = null
-
-  @Autowired
-  private val notificationBot: BotAPI = null
 
   override def sendMessage(msg: Message) = {
     saverActor ! msg

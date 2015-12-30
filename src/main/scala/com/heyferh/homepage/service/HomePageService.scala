@@ -1,6 +1,6 @@
 package com.heyferh.homepage.service
 
-import com.heyferh.homepage.model.{Message, UserStatistics}
+import com.heyferh.homepage.model.UserStatistics
 
 /**
  * Created by ferh on 19/12/15.
@@ -8,10 +8,4 @@ import com.heyferh.homepage.model.{Message, UserStatistics}
 
 trait HomePageService {
   def saveUserStatistics(stats: UserStatistics)
-
-  def saveSentMessage(message: Message)
-
-  def allUserStats(): Seq[UserStatistics]
-
-  def allMessages(): Seq[Message]
 }

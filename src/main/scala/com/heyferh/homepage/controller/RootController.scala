@@ -13,13 +13,7 @@ import org.springframework.web.bind.annotation._
  */
 @Controller
 @RequestMapping(Array("/"))
-class RootController {
-
-  @Autowired
-  private val notificationService: NotificationService = null
-
-  @Autowired
-  private val homePageService: HomePageService = null
+class RootController @Autowired()(notificationService: NotificationService , homePageService: HomePageService ) {
 
   @CrossOrigin(origins = Array("http://heyferh.com"))
   @ResponseBody

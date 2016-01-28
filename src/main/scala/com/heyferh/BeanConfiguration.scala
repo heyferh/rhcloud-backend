@@ -13,9 +13,6 @@ import org.springframework.context.annotation.{Bean, Configuration, DependsOn}
 @Configuration
 class BeanConfiguration {
 
-  @Value("${solyankaBot}")
-  private val solyankaToken: String = null
-
   @Value("${notificationBot}")
   private val notificationToken: String = null
 
@@ -31,9 +28,6 @@ class BeanConfiguration {
   @Bean
   @DependsOn(Array("actorSystem"))
   def saverActor() = actorSystem actorOf Props(new Saver(messageRepository, userStatisticsRepository))
-
-  @Bean
-  def solyankaBot() = new TelegramBot(solyankaToken)
 
   @Bean
   def notificationBot() = new TelegramBot(notificationToken)

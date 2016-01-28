@@ -39,6 +39,6 @@ class RootController @Autowired()(notificationService: NotificationService, home
   @ResponseBody
   @RequestMapping(method = Array(RequestMethod.GET))
   def ping() = {
-    "pong"
+    "PONG"
   }
 }
